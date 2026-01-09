@@ -1,0 +1,25 @@
+Animal_Project/
+│
+├── app.py
+├── train_model.py
+├── cattle_breed_model.h5
+│
+├── dataset/
+│   ├── general/
+│   │   └── cow_buffalo/
+│   │       ├──full dataset
+│   └── specialized/
+│       ├── Gir/
+│       ├── Holstein/
+│       ├── Jersey/
+│       ├── Murrah_Buffalo/
+│       └── Sahiwal/
+│
+├── static/
+│   └── style.css
+│
+└── templates/
+    └── index.html
+
+
+dataset : https://www.kaggle.com/datasets/lukex9442/indian-bovine-breeds
