@@ -35,11 +35,12 @@ def predict():
     try:
         image = Image.open(file.stream)
         image = image.resize((224, 224))
-        img_array = np.array(image) / 255.0
+        img_array = np.array(image) 
         img_array = np.expand_dims(img_array, axis=0)
+        img_array = tf.keras.applications.mobilenet_v2.preprocess_input(img_array)
 
         predictions = model.predict(img_array)
-        score = tf.nn.softmax(predictions[0])
+        score = predictions[0]
         
         predicted_class_index = np.argmax(predictions)
         confidence = 100 * np.max(score)

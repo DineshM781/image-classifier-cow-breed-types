@@ -29,11 +29,12 @@ if file is not None:
     image = Image.open(file)
     st.image(image, caption='Uploaded Image', width=300)
     img = image.resize((224, 224))
-    img_array = np.array(img) / 255.0
+    img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)
+    img_array = tf.keras.applications.mobilenet_v2.preprocess_input(img_array)
 
     predictions = model.predict(img_array)
-    score = tf.nn.softmax(predictions[0])
+    score = predictions[0]
     
     predicted_class_index = np.argmax(predictions)
     
